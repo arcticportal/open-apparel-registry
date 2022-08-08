@@ -292,7 +292,8 @@ variable "batch_notifications_ce_instance_types" {
   type = "list"
 
   default = [
-    "t3",
+    "c5",
+    "m5",
   ]
 }
 
