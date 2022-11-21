@@ -62,6 +62,7 @@ DEBUG = (ENVIRONMENT == 'Development')
 ALLOWED_HOSTS = [
     '.openapparel.org',
     '.opensupplyhub.org',
+    '.arcticportal.org'
 ]
 
 if ENVIRONMENT == 'Development':

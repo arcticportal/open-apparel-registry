@@ -14,8 +14,10 @@ services:
       retries: 3
     ports:
       - "5432:5432"
+      #- "5434:5432"
     volumes:
-      - postgis-data:/var/lib/postgresql
+      #- postgis-data:/var/lib/postgresql
+      - ../oarpostgres:/var/lib/postgresql/data
     networks:
       - OAR
   
@@ -64,7 +66,7 @@ services:
         condition: service_healthy
       memcached:
         condition: service_started
-    # entrypoint: ./init.sh
+    #entrypoint: ./init.sh
     entrypoint: ./start.sh
     ports:
       - "8081:8081"
