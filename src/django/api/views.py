@@ -2802,13 +2802,21 @@ class FacilitiesDownloadViewSet(mixins.ListModelMixin,
         if page_queryset is not None:
             serializer = FacilityDownloadSerializer(page_queryset, many=True,
                                                     context=context)
+            ### Debug ###
+            print('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>')
             rows = []
+            #for f in serializer.data:
+            #    rows.extend(f.get('rows', []))
             for f in serializer.data:
-                rows.extend(f.get('rows', []))
+              row = f.get('rows', [])
+              print(row)
+              rows.extend(row)
             data = {
                 'rows': rows,
                 'headers': headers,
             }
+            print('<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<')
+            ### Debug end ###
             response = self.get_paginated_response(data)
             return response
 
